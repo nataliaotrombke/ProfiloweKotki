@@ -1,0 +1,7 @@
+button.like {
+  font-size: 30px;
+
+  &.liked {
+    color: pink;
+  }
+}

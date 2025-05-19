@@ -1,10 +1,48 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html> <!--wersja html-->
+<html lang="pl"> <!--język strony-->
 <head>
   <meta charset="UTF-8">
-  <title>$Title$</title>
+  <title>ProfiloweKotki</title>
+  <link rel="stylesheet" href="profiloweKotki.css">
 </head>
 <body>
-$END$
+<script src="index.js" type="module"></script>
+<script src="temporary.js" type="module"></script>
+
+<button id="someButton">jakiś guzik</button>
+<template id="meow-container-template">
+  <article class="meow-container">
+    <img src="zdjęcia/zdjęcia kotów/0a49f36909a6e1f8c97afed45b114187.jpg">
+    <button class="like">&#x2665;</button>
+    <a download>&#128190;</a>
+    <ul>
+      <li>kolorowy</li>
+      <li>kociaekspresja</li>
+      <li>zabawnykot</li>
+    </ul>
+  </article>
+</template>
+
+<header>
+  <h1>Profilowe kotki</h1>
+  <img src="zdjęcia/zdjęcia kotów/monti2.jpg">
+</header>
+
+<template id="sample">
+  <article class="sample">
+    <chuj x-data="tu coś wstawimy"></chuj>
+    <p>tu też coś wstawimy</p>
+  </article>
+</template>
+
+<section>
+  <aside>
+    <h2>Szukaj tapet</h2>
+    <input type="text" id="wyszukiwarka">
+  </aside>
+  <main id="main">
+    <!-- tu -->
+  </main>
+</section>
 </body>
 </html>
