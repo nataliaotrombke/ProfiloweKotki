@@ -5,3 +5,22 @@ button.like {
     color: pink;
   }
 }
+
+#main{
+  columns: 3;
+}
+
+.meow-container {
+  li::marker{
+    content: "#";
+  }
+  img{
+    width: 350px;
+  }
+}
+
+.monti {
+  width: 350px;
+
+}
+
