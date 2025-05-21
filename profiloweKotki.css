@@ -11,13 +11,22 @@ button.like {
 }
 
 .meow-container {
-  li::marker{
+  li::before{
     content: "#";
   }
   img{
     width: 350px;
   }
-  li{}
+  li{
+    display: inline;
+    font-size: 20px;
+  }
+  ul{
+    display: flex;
+    gap: 8px;
+    background-color: #00000060;
+    color: white;
+  }
 }
 
 .monti {
