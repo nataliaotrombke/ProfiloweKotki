@@ -1,21 +1,51 @@
 button.like {
-  font-size: 30px;
+  font-size: 40px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  grid-area: 1 / 2 / 2 / 3;
+
+  --color: white;
+  /*https://stackoverflow.com/a/13427256/7132461*/
+  text-shadow: 1px 0 var(--color), -1px 0 var(--color), 0 1px var(--color), 0 -1px var(--color),
+  1px 1px var(--color), -1px -1px var(--color), 1px -1px var(--color), -1px 1px var(--color);
 
   &.liked {
     color: pink;
+    --color: black;
   }
+}
+.button-download{
+  font-size: 35px;
+  grid-area: 1 / 3 / 2 / 4;
+  place-self: center;
 }
 
 #main{
+  --gap: 10px;
+
   columns: 3;
+  column-gap: var(--gap);
+  article:not(:first-child) {
+    margin-top: var(--gap);
+  }
 }
 
 .meow-container {
+  display: grid;
+  grid-template-columns: 1fr 50px 50px;
+  grid-template-rows: 60px 1fr auto;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+
+
   li::before{
     content: "#";
   }
   img{
-    width: 350px;
+    width: 100%;
+    /*https://cssgrid-generator.netlify.app/*/
+    grid-area: 1 / 1 / 4 / 4;
   }
   li{
     display: inline;
@@ -26,6 +56,7 @@ button.like {
     gap: 8px;
     background-color: #00000060;
     color: white;
+    grid-area: 3 / 1 / 4 / 4;
   }
 }
 
@@ -33,4 +64,3 @@ button.like {
   width: 350px;
 
 }
-
