@@ -91,7 +91,7 @@ wstawianieNowegoTemplate("zdjęcia/zdjęcia kotów/1368833_10200423012314002_
 wstawianieNowegoTemplate("zdjęcia/zdjęcia kotów/FB_IMG_1551564264638.jpg", ["powaga", "brązowy", "kocyk"]);
 wstawianieNowegoTemplate("zdjęcia/zdjęcia kotów/118764064_370470367303470_4118026958884390720_n.jpg", ["śmieszny", "białoczarny", "broda"]);
 wstawianieNowegoTemplate("zdjęcia/zdjęcia kotów/118777569_614602912587550_959831113733509148_n.jpg", ["powaga", "białoczarny", "pogarda"]);
-wstawianieNowegoTemplate("zdjęcia/zdjęcia kotów/120013548_334406327783989_6017662544510074648_n.jpg", ["powaga", "białoczarny", "karykatura"]);
+wstawianieNowegoTemplate("zdjęcia/zdjęcia kotów/120013548_334406327783989_6017662544510074648_n.jpg", ["powaga", "białoczarny", "akwarelista"]);
 wstawianieNowegoTemplate("zdjęcia/zdjęcia kotów/120201375_243853847045101_1300904951718388873_n.jpg", ["śmieszny", "czarnobiały", "wąs"]);
 wstawianieNowegoTemplate("zdjęcia/zdjęcia kotów/FB_IMG_1582330730485.jpg", ["śmieszny", "pomarańczowy", "picie"]);
 wstawianieNowegoTemplate("zdjęcia/zdjęcia kotów/120316111_1032397160524676_7471639857620439133_n.jpg", ["śmieszny", "szarobiały", "wąs"]);
@@ -127,7 +127,7 @@ wstawianieNowegoTemplate("zdjęcia/zdjęcia kotów/drinking_blog_1600x.jpg", 
 wstawianieNowegoTemplate("zdjęcia/zdjęcia kotów/ula2.jpg", ["powaga", "białoszary", "naboczku"]);
 wstawianieNowegoTemplate("zdjęcia/zdjęcia kotów/f7ca34d9456841ebd04271682a1b9ab7.jpg", ["smutny", "niewyraźny", "dużeoczy"]);
 wstawianieNowegoTemplate("zdjęcia/zdjęcia kotów/f10c0e92ee043dba2114d4010d7fb662.jpg", ["śmieszny", "niewyraźny", "rzęsy"]);
-wstawianieNowegoTemplate("zdjęcia/zdjęcia kotów/FB_IMG_1477906320506.jpg", ["śmieszny", "białoczarny", "karykatura"]);
+wstawianieNowegoTemplate("zdjęcia/zdjęcia kotów/FB_IMG_1477906320506.jpg", ["śmieszny", "białoczarny", "akwarelista"]);
 wstawianieNowegoTemplate("zdjęcia/zdjęcia kotów/FB_IMG_1501805544431.jpg", ["śmieszny", "powaga", "rozlewający"]);
 wstawianieNowegoTemplate("zdjęcia/zdjęcia kotów/FB_IMG_1501822901671.jpg", ["śmieszny", "białobrązowy", "nóż"]);
 wstawianieNowegoTemplate("zdjęcia/zdjęcia kotów/FB_IMG_1520234211897.jpg", ["śmieszny", "białobrązowy", "zez"]);

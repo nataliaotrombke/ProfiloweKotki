@@ -5,7 +5,8 @@ button.like {
   cursor: pointer;
   grid-area: 1 / 2 / 2 / 3;
 
-  --color: white;
+  --color: black;
+  color: white;
   /*https://stackoverflow.com/a/13427256/7132461*/
   text-shadow: 1px 0 var(--color), -1px 0 var(--color), 0 1px var(--color), 0 -1px var(--color),
   1px 1px var(--color), -1px -1px var(--color), 1px -1px var(--color), -1px 1px var(--color);
@@ -19,6 +20,7 @@ button.like {
   font-size: 35px;
   grid-area: 1 / 3 / 2 / 4;
   place-self: center;
+  padding: 7px;
 }
 
 #main{
@@ -26,6 +28,7 @@ button.like {
 
   columns: 3;
   column-gap: var(--gap);
+  margin: 100px;
   article:not(:first-child) {
     margin-top: var(--gap);
   }
@@ -33,11 +36,13 @@ button.like {
 
 .meow-container {
   display: grid;
-  grid-template-columns: 1fr 50px 50px;
-  grid-template-rows: 60px 1fr auto;
+  grid-template-columns: 1fr auto auto;
+  grid-template-rows: auto 1fr auto;
   grid-column-gap: 0px;
   grid-row-gap: 0px;
-
+  box-shadow: black 0 0 5px;
+  border-radius: 9px;
+  overflow: hidden;
 
   li::before{
     content: "#";
@@ -57,6 +62,9 @@ button.like {
     background-color: #00000060;
     color: white;
     grid-area: 3 / 1 / 4 / 4;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 4px;
   }
 }
 
@@ -64,3 +72,43 @@ button.like {
   width: 350px;
 
 }
+body{
+  margin: 0;
+  font-family: system-ui;
+  background-color: #DA1884;
+}
+
+@media only screen and (max-width: 435px){
+  #main {
+    columns: 1;
+    margin: 40px;
+  }
+  .meow-container{
+    li{
+      display: inline;
+      font-size: 15px;
+    }
+  }
+  .button-download, button.like{
+    font-size: 20px;
+    padding: 5px;
+  }
+}
+
+@media only screen and (min-width: 436px) and (max-width: 768px){
+  #main {
+    columns: 2;
+    margin: 60px;
+  }
+  .meow-container{
+    li{
+      display: inline;
+      font-size: 17px;
+    }
+  }
+  .button-download, button.like{
+    font-size: 25px;
+    padding: 7px;
+  }
+}
+
