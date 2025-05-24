@@ -3,7 +3,8 @@
   display:grid;
   place-items: center;
   img{
-    width: 100%;
+    max-width: 100%;
+    height: 160px;
   }
 }
 
@@ -38,8 +39,17 @@ button.like {
   columns: 3;
   column-gap: var(--gap);
   margin: 100px;
-  article:not(:first-child) {
-    margin-top: var(--gap);
+
+  /* Wszystkie koty które nie są ukryte */
+  article:not([hidden]) {
+    border: 5px red solid;
+    margin-top: 0;
+
+    /* Wszystkie koty które nie są ukryte *i* mają przed sobą innego nie ukrytego kota */
+    & ~ :not([hidden]) {
+      border: 5px green solid;
+      margin-top: var(--gap);
+    }
   }
 }
 
@@ -52,6 +62,10 @@ button.like {
   box-shadow: black 0 0 5px;
   border-radius: 9px;
   overflow: hidden;
+
+  &[hidden] {
+    display: none;
+  }
 
   li::before{
     content: "#";
@@ -79,8 +93,9 @@ button.like {
 
 .monti {
   width: 100%;
-  height: 200px;
+  height: 400px;
   object-fit: cover;
+  grid-area: 1 / 1 / 4 / 5;
 }
 body{
   margin: 0;
@@ -120,5 +135,26 @@ body{
     font-size: 25px;
     padding: 7px;
   }
+}
+
+.on-headline{
+  display: grid;
+  grid-template-columns: 1fr 200px auto 1fr;
+  grid-template-rows: 1fr auto 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+
+.browser{
+  grid-area: 2 / 2 / 3 / 3;
+  background-color: #000;
+  color: #fff;
+  opacity: 0.5;
+  border: none;
+}
+
+.checkobox-liked{
+  grid-area: 2 / 3 / 3 / 4;
+  color: pink;
 }
 

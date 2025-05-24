@@ -54,7 +54,7 @@ function wstawianieNowegoTemplate(src, tags) {
 }
 
 const wyszukiwarka = document.getElementById("wyszukiwarka");
-wyszukiwarka.onkeydown = function () {
+wyszukiwarka.onkeyup = function () {
     const wpisanyTekst = wyszukiwarka.value;
     for(const klonowanie of document.querySelectorAll(".meow-container")){
         const ul = klonowanie.querySelector("ul");
@@ -201,17 +201,3 @@ wstawianieNowegoTemplate("zdjęcia/zdjęcia kotów/tatyana-rubleva-EGLt8RpNqc
 wstawianieNowegoTemplate("zdjęcia/zdjęcia kotów/Top-29-Crying-Cat-Memes-24.jpg", ["smutek", "dużeoczy", "hellokitty"]);
 wstawianieNowegoTemplate("zdjęcia/zdjęcia kotów/ula.jpg", ["powaga", "białoszary", "balkon"]);
 wstawianieNowegoTemplate("zdjęcia/zdjęcia kotów/ZskrFwK.jpg", ["smutek", "dużeoczy", "niewyraźny"]);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
