@@ -1,3 +1,12 @@
+.headline{
+  background-color: white;
+  display:grid;
+  place-items: center;
+  img{
+    width: 100%;
+  }
+}
+
 button.like {
   font-size: 40px;
   background-color: transparent;
@@ -69,8 +78,9 @@ button.like {
 }
 
 .monti {
-  width: 350px;
-
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
 }
 body{
   margin: 0;
