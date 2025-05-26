@@ -176,7 +176,7 @@ wstawianieNowegoTemplate("zdjęcia/zdjęcia kotów/IMG_20180730_121515.jpg", 
 wstawianieNowegoTemplate("zdjęcia/zdjęcia kotów/IMG_20180730_121516.jpg", ["szok", "białoczarny", "ryba"]);
 wstawianieNowegoTemplate("zdjęcia/zdjęcia kotów/IMG_20180730_121520.jpg", ["złość", "brązowobiały", "lupa"]);
 wstawianieNowegoTemplate("zdjęcia/zdjęcia kotów/IMG_20180917_190352.jpg", ["powaga", "brązowy", "love"]);
-wstawianieNowegoTemplate("zdjęcia/zdjęcia kotów/IMG_20180917_192433.jpg", ["powaga", "biały", "love"]);
+wstawianieNowegoTemplate("zdjęcia/zdjęcia kotów/IMG_20180917_192433.jpg", ["uroczy", "biały", "love"]);
 wstawianieNowegoTemplate("zdjęcia/zdjęcia kotów/melted12_4e189508-0c43-406c-a76a-d6f05053163f.jpg", ["sen", "białobrązowy", "lustro"]);
 wstawianieNowegoTemplate("zdjęcia/zdjęcia kotów/monti.jpg", ["powaga", "szary", "zmywarka"]);
 wstawianieNowegoTemplate("zdjęcia/zdjęcia kotów/nadh-41_17b72.jpg", ["smutek", "biały", "frytka"]);

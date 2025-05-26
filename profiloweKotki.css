@@ -9,20 +9,23 @@
 }
 
 button.like {
-  font-size: 40px;
+  font-size: 45px;
   background-color: transparent;
   border: none;
   cursor: pointer;
   grid-area: 1 / 2 / 2 / 3;
-
+margin-bottom: 5px;
   --color: black;
-  color: white;
+  color: #FFE4E1;;
   /*https://stackoverflow.com/a/13427256/7132461*/
   text-shadow: 1px 0 var(--color), -1px 0 var(--color), 0 1px var(--color), 0 -1px var(--color),
   1px 1px var(--color), -1px -1px var(--color), 1px -1px var(--color), -1px 1px var(--color);
+  font-family: system-ui;
+  padding: 0;
+
 
   &.liked {
-    color: pink;
+    color: #DA1884;
     --color: black;
   }
 }
@@ -40,14 +43,20 @@ button.like {
   column-gap: var(--gap);
   margin: 100px;
 
+  article{
+    border: 5px pink solid;
+    font-family: system-ui;
+
+  }
+
   /* Wszystkie koty które nie są ukryte */
   article:not([hidden]) {
-    border: 5px red solid;
+    /*border: 5px red solid;*/
     margin-top: 0;
 
     /* Wszystkie koty które nie są ukryte *i* mają przed sobą innego nie ukrytego kota */
     & ~ :not([hidden]) {
-      border: 5px green solid;
+      /*border: 5px pink solid;*/
       margin-top: var(--gap);
     }
   }
@@ -62,6 +71,7 @@ button.like {
   box-shadow: black 0 0 5px;
   border-radius: 9px;
   overflow: hidden;
+
 
   &[hidden] {
     display: none;
@@ -114,10 +124,26 @@ body{
       font-size: 15px;
     }
   }
-  .button-download, button.like{
+  .button-download{
     font-size: 20px;
     padding: 5px;
   }
+  button.like{
+    font-size: 25px;
+    margin-top: 2px;
+  }
+  .monti{
+    height: 135px;
+    width: 320px;
+  }
+  .headline{
+ img{
+   height: 100px;
+ }
+  }
+  /*.browser, .checkobox-liked{*/
+  /*  grid-area: auto !important;*/
+  /*}*/
 }
 
 @media only screen and (min-width: 436px) and (max-width: 768px){
@@ -131,7 +157,11 @@ body{
       font-size: 17px;
     }
   }
-  .button-download, button.like{
+  button.like{
+    font-size: 35px;
+    padding: 0;
+  }
+  .button-download{
     font-size: 25px;
     padding: 7px;
   }
@@ -139,7 +169,7 @@ body{
 
 .on-headline{
   display: grid;
-  grid-template-columns: 1fr 200px auto 1fr;
+  grid-template-columns: 1fr 500px auto 1fr;
   grid-template-rows: 1fr auto 1fr;
   grid-column-gap: 0px;
   grid-row-gap: 0px;
@@ -147,14 +177,40 @@ body{
 
 .browser{
   grid-area: 2 / 2 / 3 / 3;
-  background-color: #000;
-  color: #fff;
+  background-color: white;
+  color: black;
   opacity: 0.5;
   border: none;
+  border-radius: 9px;
+  padding: 12px 20px;
+  font-size: 20px;
 }
 
 .checkobox-liked{
   grid-area: 2 / 3 / 3 / 4;
-  color: pink;
+  color: #FFE4E1;;
+  padding: 20px 22px;
+  font-size: 22px;
+
+  .heart{
+    color: #FFE4E1;;
+  }
+
+  &:has(input:checked) {
+    color: #DA1884;
+
+    .heart{
+      color: #DA1884;
+    }
+  }
+
+  input{
+    appearance: none;
+  }
 }
+
+label {
+  cursor: pointer;
+}
+
 
