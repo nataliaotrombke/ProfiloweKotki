@@ -39,11 +39,11 @@ function wstawianieNowegoTemplate(src, tags) {
         if (heart == null) {
             localStorage.setItem(src, "heart");
             heartButton.classList.add("liked");
-            console.log("Dodano do ulubionych");
+            // console.log("Dodano do ulubionych");
         } else {
             localStorage.removeItem(src);
             heartButton.classList.remove("liked");
-            console.log("Usunięto z ulubionych");
+            // console.log("Usunięto z ulubionych");
         }
     };
     
@@ -65,7 +65,7 @@ wyszukiwarka.onkeyup = function () {
         } else {
             klonowanie.setAttribute("hidden", "true");
         }
-        console.log(matching, klonowanie);
+        // console.log(matching, klonowanie);
     }
 };
 
@@ -201,3 +201,12 @@ wstawianieNowegoTemplate("zdjęcia/zdjęcia kotów/tatyana-rubleva-EGLt8RpNqc
 wstawianieNowegoTemplate("zdjęcia/zdjęcia kotów/Top-29-Crying-Cat-Memes-24.jpg", ["smutek", "dużeoczy", "hellokitty"]);
 wstawianieNowegoTemplate("zdjęcia/zdjęcia kotów/ula.jpg", ["powaga", "białoszary", "balkon"]);
 wstawianieNowegoTemplate("zdjęcia/zdjęcia kotów/ZskrFwK.jpg", ["smutek", "dużeoczy", "niewyraźny"]);
+
+
+fetch("https://icanhazdadjoke.com/", {
+    headers: { Accept: "application/json" }
+})
+    .then(res => res.json())
+    .then(data => {
+        document.getElementById("dad-joke").textContent = data.joke;
+    });

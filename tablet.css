@@ -1,0 +1,23 @@
+@media only screen and (min-width: 436px) and (max-width: 768px) {
+  #main {
+    columns: 2;
+    margin: 60px;
+  }
+
+  .meow-container {
+    li {
+      display: inline;
+      font-size: 17px;
+    }
+  }
+
+  button.like {
+    font-size: 35px;
+    padding: 0;
+  }
+
+  .button-download {
+    font-size: 25px;
+    padding: 7px;
+  }
+}

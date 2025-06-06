@@ -3,14 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <title>ProfiloweKotki</title>
-  <link rel="stylesheet" href="profiloweKotki.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+  <link href="profiloweKotki.css" rel="stylesheet">
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" name="viewport"/>
 </head>
 <body>
 <script src="index.js" type="module"></script>
 <script src="temporary.js" type="module"></script>
-
-<!--<button id="someButton">jakiś guzik</button>-->
 <template id="meow-container-template">
   <article class="meow-container">
     <img src="some-cat.jpg">
@@ -30,15 +28,17 @@
 <section>
   <aside class="on-headline">
     <img class="monti" src="zdjęcia/zdjęcia kotów/monti2.jpg">
-    <input type="text" id="wyszukiwarka" class="browser" placeholder="śmieszny, love, wąs...">
-    <label class="checkobox-liked">
-      Polubione
-      <span class="heart">&#9829;</span>
-      <input type="checkbox">
-    </label>
+    <input class="browser" id="wyszukiwarka" placeholder="śmieszny, love, wąs..." type="text">
+    <article class="checkobox-liked">
+      <label>
+        Polubione
+        <span class="heart">&#9829;</span>
+        <input type="checkbox">
+      </label>
+    </article>
   </aside>
-  <main id="main">
-  </main>
+  <p id="dad-joke"></p>
+  <main id="main"></main>
 </section>
 </body>
 </html>
