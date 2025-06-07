@@ -1,19 +1,13 @@
 const main = document.getElementById("main");
 
 function wstawianieNowegoTemplate(src, tags) {
-  
     // Znajdź szablon o id meow...
     const template = document.getElementById("meow-container-template");
-
     // Zrób kopię wszystkiego co znajduję sie w szablonie (parametr true)
     const klonowanie = template.content.cloneNode(true);
-
     const ul = klonowanie.querySelector("ul");
-
     ul.replaceChildren();
-
-
-
+    
     // Wewnątrz kopi znajdź element typu <img>
     const zdjecie = klonowanie.querySelector("img");
 
@@ -39,18 +33,37 @@ function wstawianieNowegoTemplate(src, tags) {
         if (heart == null) {
             localStorage.setItem(src, "heart");
             heartButton.classList.add("liked");
-            // console.log("Dodano do ulubionych");
         } else {
             localStorage.removeItem(src);
             heartButton.classList.remove("liked");
-            // console.log("Usunięto z ulubionych");
+        }
+        if (checkboxLiked.checked) {
+            filtrujPolubione();
         }
     };
-    
 
     // Gotową kopię szablonu dodaj na końcu elementu main, 
     main.appendChild(klonowanie);
     //reagować na kliknięcie guzkia
+    
+    const checkboxLiked = document.querySelector(".checkobox-liked input");
+
+    function filtrujPolubione() {
+        const pokazTylkoPolubione = checkboxLiked.checked;
+
+        for (const kontener of document.querySelectorAll(".meow-container")) {
+            const przyciskLike = kontener.querySelector("button.like");
+            const jestPolubione = przyciskLike.classList.contains("liked");
+
+            if (pokazTylkoPolubione && !jestPolubione) {
+                kontener.setAttribute("hidden", "true");
+            } else {
+                kontener.removeAttribute("hidden");
+            }
+        }
+    }
+    checkboxLiked.onchange = filtrujPolubione;
+
 }
 
 const wyszukiwarka = document.getElementById("wyszukiwarka");
@@ -65,9 +78,17 @@ wyszukiwarka.onkeyup = function () {
         } else {
             klonowanie.setAttribute("hidden", "true");
         }
-        // console.log(matching, klonowanie);
     }
 };
+
+
+fetch("https://icanhazdadjoke.com/", {
+    headers: { Accept: "application/json" }
+})
+    .then(res => res.json())
+    .then(data => {
+        document.getElementById("dad-joke").textContent = data.joke;
+    });
 
 // Zrób i wstaw 1 klon
 wstawianieNowegoTemplate("zdjęcia/zdjęcia kotów/0a49f36909a6e1f8c97afed45b114187.jpg",["śmieszny", "kotek", "pogarda"]);
@@ -201,12 +222,3 @@ wstawianieNowegoTemplate("zdjęcia/zdjęcia kotów/tatyana-rubleva-EGLt8RpNqc
 wstawianieNowegoTemplate("zdjęcia/zdjęcia kotów/Top-29-Crying-Cat-Memes-24.jpg", ["smutek", "dużeoczy", "hellokitty"]);
 wstawianieNowegoTemplate("zdjęcia/zdjęcia kotów/ula.jpg", ["powaga", "białoszary", "balkon"]);
 wstawianieNowegoTemplate("zdjęcia/zdjęcia kotów/ZskrFwK.jpg", ["smutek", "dużeoczy", "niewyraźny"]);
-
-
-fetch("https://icanhazdadjoke.com/", {
-    headers: { Accept: "application/json" }
-})
-    .then(res => res.json())
-    .then(data => {
-        document.getElementById("dad-joke").textContent = data.joke;
-    });

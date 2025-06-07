@@ -1,34 +1,5 @@
 
 @media only screen and (max-width: 435px) {
-  #main {
-    columns: 1;
-    margin: 40px;
-  }
-
-  .meow-container {
-    li {
-      display: inline;
-      font-size: 15px;
-    }
-  }
-
-  .button-download {
-    font-size: 20px;
-    padding: 5px;
-  }
-
-  button.like {
-    font-size: 25px;
-    margin-top: 2px;
-  }
-
-  .monti {
-    height: 135px;
-    width: 310px;
-    grid-area: 1 / 1 / 2 / 2;
-    margin: 5px 5px 0 5px;
-    border-radius: 9px 9px 0 0;
-  }
 
   .headline {
     img {
@@ -42,6 +13,14 @@
     grid-template-rows: repeat(3, auto);
     grid-column-gap: 0px;
     grid-row-gap: 0px;
+  }
+
+  .monti {
+    height: 135px;
+    width: 310px;
+    grid-area: 1 / 1 / 2 / 2;
+    margin: 5px 5px 0 5px;
+    border-radius: 9px 9px 0 0;
   }
 
   .browser {
@@ -63,9 +42,8 @@
       font-size: 20px;
       border-radius: 9px;
       backdrop-filter: blur(11px);
-      background-color: yellow;
+      background-color: #f5d3d4;
       margin: 0;
-
       padding: 10px;
     }
   }
@@ -78,4 +56,25 @@
     background-color: #f5d3d4;
   }
 
+  #main {
+    columns: 1;
+    margin: 40px;
+  }
+
+  .meow-container {
+    li {
+      display: inline;
+      font-size: 15px;
+    }
+  }
+
+  button.like {
+    font-size: 25px;
+    margin-top: 2px;
+  }
+
+  .button-download {
+    font-size: 20px;
+    padding: 5px;
+  }
 }
