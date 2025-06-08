@@ -109,23 +109,6 @@ label {
     grid-area: 1 / 1 / 4 / 4;
   }
 
-  li {
-    display: inline;
-    font-size: 20px;
-  }
-
-  ul {
-    display: flex;
-    gap: 8px;
-    background-color: #00000060;
-    color: white;
-    grid-area: 3 / 1 / 4 / 4;
-    flex-wrap: wrap;
-    margin: 0;
-    padding: 4px;
-  }
-}
-
 button.like {
   font-size: 45px;
   background-color: transparent;
@@ -155,6 +138,23 @@ button.like {
   padding: 7px;
 }
 
+  li {
+    display: inline;
+    font-size: 20px;
+  }
+
+  ul {
+    display: flex;
+    gap: 8px;
+    background-color: #00000060;
+    color: white;
+    grid-area: 3 / 1 / 4 / 4;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 4px;
+  }
+}
+
 #main {
   --gap: 10px;
   columns: 3;
@@ -175,5 +175,32 @@ button.like {
     & ~ :not([hidden]) {
       margin-top: var(--gap);
     }
+  }
+
+  .hidden {
+    visibility: hidden;
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .meow-container:hover .like,
+  .meow-container:hover .button-download,
+  .meow-container:hover ul {
+    visibility: visible;
+    opacity: 1;
+    height: auto;
+    padding: 4px;
+    pointer-events: auto;
+  }
+}
+
+.footer{
+  text-align: center;
+  font-family: system-ui;
+  a{
+    text-decoration: none;
   }
 }
