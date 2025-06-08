@@ -17,10 +17,12 @@
 
   .monti {
     height: 135px;
-    width: 310px;
+    width: 100%;
     grid-area: 1 / 1 / 2 / 2;
-    margin: 5px 5px 0 5px;
+    /*margin: 5px 5px 0 5px;*/
     border-radius: 9px 9px 0 0;
+    box-sizing: border-box;
+    padding: 5px;
   }
 
   .browser {
