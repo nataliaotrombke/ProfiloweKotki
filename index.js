@@ -68,7 +68,7 @@ function wstawianieNowegoTemplate(src, tags) {
 
 const wyszukiwarka = document.getElementById("wyszukiwarka");
 wyszukiwarka.onkeyup = function () {
-    const wpisanyTekst = wyszukiwarka.value;
+    const wpisanyTekst = wyszukiwarka.value.toLowerCase();
     for(const klonowanie of document.querySelectorAll(".meow-container")){
         const ul = klonowanie.querySelector("ul");
         const tags = ul.textContent;
