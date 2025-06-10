@@ -1,13 +1,17 @@
 const main = document.getElementById("main");
 
 function wstawianieNowegoTemplate(src, tags) {
+    // Znajdź szablon o id meow...
     const template = document.getElementById("meow-container-template");
+    // Zrób kopię wszystkiego co znajduję sie w szablonie (parametr true)
     const klonowanie = template.content.cloneNode(true);
     const ul = klonowanie.querySelector("ul");
     ul.replaceChildren();
 
+    // Wewnątrz kopi znajdź element typu <img>
     const zdjecie = klonowanie.querySelector("img");
 
+    // Wstaw zmienną `src` jako zawartość tekstową temu obrazkowi
     zdjecie.setAttribute("src", src);
 
     const a = klonowanie.querySelector("a");
@@ -19,11 +23,13 @@ function wstawianieNowegoTemplate(src, tags) {
         li.textContent = tag
         ul.appendChild(li);
     }
+
     const heartButton = klonowanie.querySelector("button");
 
     if (localStorage.getItem(src)) {
         heartButton.classList.add("liked");
     }
+
     heartButton.onclick = function () {
         const heart = window.localStorage.getItem(src);
         if (heart == null) {
@@ -37,16 +43,19 @@ function wstawianieNowegoTemplate(src, tags) {
             filtrujPolubione();
         }
     };
-
+    // Gotową kopię szablonu dodaj na końcu elementu main,
     main.appendChild(klonowanie);
 
+    //reagować na kliknięcie guzkia
     const checkboxLiked = document.querySelector(".checkobox-liked input");
 
+    //filtrowanie elementów na stronie, pokazywanie tylko tych, które zostały polubione
     function filtrujPolubione() {
         const pokazTylkoPolubione = checkboxLiked.checked;
 
         for (const kontener of document.querySelectorAll(".meow-container")) {
             const przyciskLike = kontener.querySelector("button.like");
+            //sprawdzanie czy przycisk ma klasę "liked"
             const jestPolubione = przyciskLike.classList.contains("liked");
 
             if (pokazTylkoPolubione && !jestPolubione) {
@@ -61,11 +70,13 @@ function wstawianieNowegoTemplate(src, tags) {
 }
 
 const wyszukiwarka = document.getElementById("wyszukiwarka");
+
 wyszukiwarka.onkeyup = function () {
     const wpisanyTekst = wyszukiwarka.value.toLowerCase();
     for(const klonowanie of document.querySelectorAll(".meow-container")){
         const ul = klonowanie.querySelector("ul");
         const tags = ul.textContent;
+        //sprawdzanie czy wpisany tekst występuje w tagach
         const matching = tags.includes(wpisanyTekst)
         if (matching) {
             klonowanie.removeAttribute("hidden");
@@ -75,51 +86,60 @@ wyszukiwarka.onkeyup = function () {
     }
 };
 
-
+//wysyłanie żądania
 fetch("https://icanhazdadjoke.com/", {
     headers: { Accept: "application/json" }
 })
+    //konwertowanie odpowiedzi serwera
     .then(res => res.json())
     .then(data => {
         document.getElementById("dad-joke").textContent = data.joke;
     });
 
 
-document.addEventListener("DOMContentLoaded", () => {
-    document.querySelectorAll(".meow-container img").forEach((obrazek) => {
-        obrazek.addEventListener("click", () => {
-            const istniejacaNakladka = document.querySelector(".overlay");
-            if (istniejacaNakladka) {
-                istniejacaNakladka.remove();
-            }
 
-            const nowaNakladka = document.createElement("div");
-            nowaNakladka.classList.add("overlay");
 
-            document.body.appendChild(nowaNakladka);
-            const kontenerZdjecia = obrazek.closest(".meow-container");
-            kontenerZdjecia.classList.add("expanded");
 
-            nowaNakladka.addEventListener("click", () => {
-                nowaNakladka.remove();
-                kontenerZdjecia.classList.remove("expanded");
-            });
-        });
+// main.addEventListener("click", (event) => {
+//     const obrazek = event.target.closest(".meow-container img");
+//     if (obrazek) {
+//         const istniejacaNakladka = document.querySelector(".overlay");
+//         if (istniejacaNakladka) {
+//             istniejacaNakladka.remove();
+//         }
+//
+//         const nowaNakladka = document.createElement("div");
+//         nowaNakladka.classList.add("overlay");
+//
+//         document.body.appendChild(nowaNakladka);
+//         const kontenerZdjecia = obrazek.closest(".meow-container");
+//         kontenerZdjecia.classList.add("expanded");
+//
+//         nowaNakladka.addEventListener("click", () => {
+//             nowaNakladka.remove();
+//             kontenerZdjecia.classList.remove("expanded");
+//         });
+//         event.stopPropagation();
+//     }
+//     const przyciskSerduszko = event.target.closest(".meow-container button.like");
+//     if (przyciskSerduszko) {
+//         const kontener = przyciskSerduszko.closest(".meow-container");
+//         if (!przyciskSerduszko.classList.contains("liked") && kontener.classList.contains("expanded")) {
+//             kontener.classList.remove("expanded");
+//             const nakladka = document.querySelector(".overlay");
+//             if (nakladka) {
+//                 nakladka.remove();
+//             }
+//         }
+//     }
+// });
 
-        document.querySelectorAll(".meow-container button.like").forEach((przyciskSerduszko) => {
-            przyciskSerduszko.addEventListener("click", () => {
-                const kontener = przyciskSerduszko.closest(".meow-container");
-                if (!przyciskSerduszko.classList.contains("liked") && kontener.classList.contains("expanded")) {
-                    kontener.classList.remove("expanded");
-                    const nakladka = document.querySelector(".overlay");
-                    if (nakladka) {
-                        nakladka.remove();
-                    }
-                }
-            });
-        });
-    });
-});
+
+
+
+
+
+
 
 wstawianieNowegoTemplate("zdjecia/zdjecia-kotow/0a49f36909a6e1f8c97afed45b114187.jpg",["śmieszny", "kotek", "pogarda"]);
 wstawianieNowegoTemplate("zdjecia/zdjecia-kotow/01a3b586a83c62348470ef0d4abc0099.jpg", ["powaga", "białoczarny", "alkohol"]);
