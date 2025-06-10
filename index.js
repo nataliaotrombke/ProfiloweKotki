@@ -1,17 +1,13 @@
 const main = document.getElementById("main");
 
 function wstawianieNowegoTemplate(src, tags) {
-    // Znajdź szablon o id meow...
     const template = document.getElementById("meow-container-template");
-    // Zrób kopię wszystkiego co znajduję sie w szablonie (parametr true)
     const klonowanie = template.content.cloneNode(true);
     const ul = klonowanie.querySelector("ul");
     ul.replaceChildren();
-    
-    // Wewnątrz kopi znajdź element typu <img>
+
     const zdjecie = klonowanie.querySelector("img");
 
-    // Wstaw zmienną `src` jako zawartość tekstową temu obrazkowi
     zdjecie.setAttribute("src", src);
 
     const a = klonowanie.querySelector("a");
@@ -42,10 +38,8 @@ function wstawianieNowegoTemplate(src, tags) {
         }
     };
 
-    // Gotową kopię szablonu dodaj na końcu elementu main, 
     main.appendChild(klonowanie);
-    //reagować na kliknięcie guzkia
-    
+
     const checkboxLiked = document.querySelector(".checkobox-liked input");
 
     function filtrujPolubione() {
@@ -90,7 +84,43 @@ fetch("https://icanhazdadjoke.com/", {
         document.getElementById("dad-joke").textContent = data.joke;
     });
 
-// Zrób i wstaw 1 klon
+
+document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll(".meow-container img").forEach((obrazek) => {
+        obrazek.addEventListener("click", () => {
+            const istniejacaNakladka = document.querySelector(".overlay");
+            if (istniejacaNakladka) {
+                istniejacaNakladka.remove();
+            }
+
+            const nowaNakladka = document.createElement("div");
+            nowaNakladka.classList.add("overlay");
+
+            document.body.appendChild(nowaNakladka);
+            const kontenerZdjecia = obrazek.closest(".meow-container");
+            kontenerZdjecia.classList.add("expanded");
+
+            nowaNakladka.addEventListener("click", () => {
+                nowaNakladka.remove();
+                kontenerZdjecia.classList.remove("expanded");
+            });
+        });
+
+        document.querySelectorAll(".meow-container button.like").forEach((przyciskSerduszko) => {
+            przyciskSerduszko.addEventListener("click", () => {
+                const kontener = przyciskSerduszko.closest(".meow-container");
+                if (!przyciskSerduszko.classList.contains("liked") && kontener.classList.contains("expanded")) {
+                    kontener.classList.remove("expanded");
+                    const nakladka = document.querySelector(".overlay");
+                    if (nakladka) {
+                        nakladka.remove();
+                    }
+                }
+            });
+        });
+    });
+});
+
 wstawianieNowegoTemplate("zdjecia/zdjecia-kotow/0a49f36909a6e1f8c97afed45b114187.jpg",["śmieszny", "kotek", "pogarda"]);
 wstawianieNowegoTemplate("zdjecia/zdjecia-kotow/01a3b586a83c62348470ef0d4abc0099.jpg", ["powaga", "białoczarny", "alkohol"]);
 wstawianieNowegoTemplate("zdjecia/zdjecia-kotow/122861644_401054050923057_6110775820027702721_n.jpg", ["śmieszny", "szok", "biały"]);
