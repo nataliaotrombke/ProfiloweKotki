@@ -79,19 +79,4 @@
     font-size: 20px;
     padding: 5px;
   }
-
-  .meow-container.expanded {
-    width: 80vw;
-    max-height: 80vh;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    overflow: auto;
-  }
-
-  .meow-container.expanded img {
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-  }
 }

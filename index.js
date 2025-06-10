@@ -43,10 +43,11 @@ function wstawianieNowegoTemplate(src, tags) {
             filtrujPolubione();
         }
     };
-    // Gotową kopię szablonu dodaj na końcu elementu main,
+    // Gotową kopię szablonu dodaj na końcu elementu main, 
     main.appendChild(klonowanie);
 
     //reagować na kliknięcie guzkia
+    
     const checkboxLiked = document.querySelector(".checkobox-liked input");
 
     //filtrowanie elementów na stronie, pokazywanie tylko tych, które zostały polubione
@@ -96,51 +97,7 @@ fetch("https://icanhazdadjoke.com/", {
         document.getElementById("dad-joke").textContent = data.joke;
     });
 
-
-
-
-
-// main.addEventListener("click", (event) => {
-//     const obrazek = event.target.closest(".meow-container img");
-//     if (obrazek) {
-//         const istniejacaNakladka = document.querySelector(".overlay");
-//         if (istniejacaNakladka) {
-//             istniejacaNakladka.remove();
-//         }
-//
-//         const nowaNakladka = document.createElement("div");
-//         nowaNakladka.classList.add("overlay");
-//
-//         document.body.appendChild(nowaNakladka);
-//         const kontenerZdjecia = obrazek.closest(".meow-container");
-//         kontenerZdjecia.classList.add("expanded");
-//
-//         nowaNakladka.addEventListener("click", () => {
-//             nowaNakladka.remove();
-//             kontenerZdjecia.classList.remove("expanded");
-//         });
-//         event.stopPropagation();
-//     }
-//     const przyciskSerduszko = event.target.closest(".meow-container button.like");
-//     if (przyciskSerduszko) {
-//         const kontener = przyciskSerduszko.closest(".meow-container");
-//         if (!przyciskSerduszko.classList.contains("liked") && kontener.classList.contains("expanded")) {
-//             kontener.classList.remove("expanded");
-//             const nakladka = document.querySelector(".overlay");
-//             if (nakladka) {
-//                 nakladka.remove();
-//             }
-//         }
-//     }
-// });
-
-
-
-
-
-
-
-
+// Zrób i wstaw 1 klon
 wstawianieNowegoTemplate("zdjecia/zdjecia-kotow/0a49f36909a6e1f8c97afed45b114187.jpg",["śmieszny", "kotek", "pogarda"]);
 wstawianieNowegoTemplate("zdjecia/zdjecia-kotow/01a3b586a83c62348470ef0d4abc0099.jpg", ["powaga", "białoczarny", "alkohol"]);
 wstawianieNowegoTemplate("zdjecia/zdjecia-kotow/122861644_401054050923057_6110775820027702721_n.jpg", ["śmieszny", "szok", "biały"]);
