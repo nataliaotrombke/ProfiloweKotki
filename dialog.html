@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<style>
+  dialog {
+    width: 80svw;
+    height: 70svh;
+  }
+</style>
+
+<h1>Przykład dialogu jako Popover (bez JS)</h1>
+
+<button popovertarget="myDialogPopover" popovertargetaction="show">Otwórz Popover Dialog</button>
+
+<dialog id="myDialogPopover" popover>
+  tu może być zdjęcie kota
+  <button popovertarget="myDialogPopover" popovertargetaction="hide">Zamknij</button>
+</dialog>
+
+<p>Treść strony pod dialogiem.</p>
+<p>Możesz przewijać stronę, gdy dialog jest otwarty.</p>
+
+
+</body>
+</html>

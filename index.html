@@ -11,13 +11,28 @@
 <template id="meow-container-template">
   <article class="meow-container">
     <img src="some-cat.jpg">
-    <button class="like hidden">&#9829;</button>
-    <a class="button-download hidden" download>&#128190;</a>
-    <ul class="hidden">
-      <li>tag-1</li>
-      <li>tag-2</li>
-      <li>tag-3</li>
-    </ul>
+<!--    <button class="like hidden">&#9829;</button>-->
+<!--    <a class="button-download hidden" download>&#128190;</a>-->
+<!--    <ul class="hidden">-->
+<!--      <li>tag-1</li>-->
+<!--      <li>tag-2</li>-->
+<!--      <li>tag-3</li>-->
+<!--    </ul>-->
+
+    <button class="open-popover-button" popovertarget="id-dialog" popovertargetaction="show">Otwórz Popover Dialog</button>
+
+    <dialog id="id-dialog" popover>
+      <img src="some-cat.jpg">
+<!--      <button popovertarget="id-dialog" popovertargetaction="hide"></button>-->
+      <button class="like">&#9829;</button>
+      <a class="button-download" download>&#128190;</a>
+      <ul class="">
+        <li>tag-1</li>
+        <li>tag-2</li>
+        <li>tag-3</li>
+      </ul>
+    </dialog>
+
   </article>
 </template>
 

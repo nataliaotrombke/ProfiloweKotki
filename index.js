@@ -1,18 +1,30 @@
 const main = document.getElementById("main");
 
+
 function wstawianieNowegoTemplate(src, tags) {
     // Znajdź szablon o id meow...
     const template = document.getElementById("meow-container-template");
     // Zrób kopię wszystkiego co znajduję sie w szablonie (parametr true)
     const klonowanie = template.content.cloneNode(true);
+    
+    const dialog = klonowanie.querySelector('dialog');
+    dialog.id = src;
+    const wszystkoCoCeloujeWDialog = klonowanie.querySelectorAll('[popovertarget]');
+    for (const cos of wszystkoCoCeloujeWDialog) {
+        cos.setAttribute("popovertarget", src);
+    }
+    
     const ul = klonowanie.querySelector("ul");
     ul.replaceChildren();
 
     // Wewnątrz kopi znajdź element typu <img>
-    const zdjecie = klonowanie.querySelector("img");
+    const zdjecia = klonowanie.querySelectorAll("img");
 
+    for (const zdjecie of zdjecia) {
     // Wstaw zmienną `src` jako zawartość tekstową temu obrazkowi
     zdjecie.setAttribute("src", src);
+        
+    }
 
     const a = klonowanie.querySelector("a");
     a.setAttribute("href", src);
@@ -24,7 +36,7 @@ function wstawianieNowegoTemplate(src, tags) {
         ul.appendChild(li);
     }
 
-    const heartButton = klonowanie.querySelector("button");
+    const heartButton = klonowanie.querySelector("button.like");
 
     if (localStorage.getItem(src)) {
         heartButton.classList.add("liked");
