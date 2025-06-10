@@ -1,19 +1,51 @@
 const main = document.getElementById("main");
 
+let counter = 0;
 
 function wstawianieNowegoTemplate(src, tags) {
     // Znajdź szablon o id meow...
     const template = document.getElementById("meow-container-template");
     // Zrób kopię wszystkiego co znajduję sie w szablonie (parametr true)
     const klonowanie = template.content.cloneNode(true);
-    
+
+    const article = klonowanie.querySelector("article.meow-container");
     const dialog = klonowanie.querySelector('dialog');
-    dialog.id = src;
-    const wszystkoCoCeloujeWDialog = klonowanie.querySelectorAll('[popovertarget]');
-    for (const cos of wszystkoCoCeloujeWDialog) {
-        cos.setAttribute("popovertarget", src);
+
+    const id = "zdj-" + counter++;
+    const popoverButton = klonowanie.querySelector("button.open-popover-button");
+
+    // Animacja otwierania
+    popoverButton.onclick = function (){
+        // Usuń inne `view-transition-name` które zostały z poprzednich animacji
+        for (const innyArtykul of document.querySelectorAll('article')) {
+            innyArtykul.setAttribute("style", "");
+        }
+
+        article.setAttribute("style", "view-transition-name: " + id);
+        dialog.setAttribute("style", "");
+
+        document.startViewTransition(() => {
+            dialog.setAttribute("style", "view-transition-name: " + id);
+            article.setAttribute("style", "");
+            dialog.showModal();
+        });
     }
-    
+
+    // Animacja zamykania
+    dialog.oncancel = (event) => {
+        event.preventDefault(); // Anuluj zamykanie
+
+        dialog.setAttribute("style", "view-transition-name: " + id);
+        article.setAttribute("style", "");
+
+        document.startViewTransition(() => {
+            article.setAttribute("style", "view-transition-name: " + id);
+            dialog.setAttribute("style", "");
+            // Musieliśmy anulować zamykanie, bo view transition wymaga od nas ręcznego zamknięcia w js
+            dialog.close();
+        });
+    }
+
     const ul = klonowanie.querySelector("ul");
     ul.replaceChildren();
 
@@ -21,9 +53,8 @@ function wstawianieNowegoTemplate(src, tags) {
     const zdjecia = klonowanie.querySelectorAll("img");
 
     for (const zdjecie of zdjecia) {
-    // Wstaw zmienną `src` jako zawartość tekstową temu obrazkowi
-    zdjecie.setAttribute("src", src);
-        
+        // Wstaw zmienną `src` jako zawartość tekstową temu obrazkowi
+        zdjecie.setAttribute("src", src);
     }
 
     const a = klonowanie.querySelector("a");
@@ -55,11 +86,11 @@ function wstawianieNowegoTemplate(src, tags) {
             filtrujPolubione();
         }
     };
-    // Gotową kopię szablonu dodaj na końcu elementu main, 
+    // Gotową kopię szablonu dodaj na końcu elementu main,
     main.appendChild(klonowanie);
 
     //reagować na kliknięcie guzkia
-    
+
     const checkboxLiked = document.querySelector(".checkobox-liked input");
 
     //filtrowanie elementów na stronie, pokazywanie tylko tych, które zostały polubione

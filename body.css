@@ -3,14 +3,13 @@ body {
   font-family: system-ui;
   background-color: #f5e2e2;
 
-&:has(:popover-open) {
-  overflow: hidden;
-  .meow-container {
-    pointer-events: none;
+  &:has(:modal) {
+    overflow: hidden;
+    .meow-container {
+      pointer-events: none;
+    }
   }
 }
-}
-
 
 .on-headline {
   display: grid;
@@ -94,8 +93,6 @@ label {
   font-family: system-ui;
 }
 
-
-
 .meow-container {
   display: grid;
   grid-template-columns: 1fr auto auto;
@@ -124,43 +121,39 @@ label {
     transition: transform 0.3s ease;
   }
 
-
-
   .open-popover-button {
-    grid-area: 1 / 1 / 4 / 4; /* Zajmuje całą powierzchnię zdjęcia */
-    opacity: 0; /* Sprawia, że jest niewidzialny */
-    cursor: pointer; /* Zapewnia, że kursor zmienia się na wskaźnik */
-    padding: 0; /* Usuwa domyślny padding przycisku */
-    font-size: 0; /* Ukrywa tekst przycisku */
+    grid-area: 1 / 1 / 4 / 4;
+    opacity: 0;
+    cursor: pointer;
+    padding: 0;
   }
+
   dialog {
     max-width: 90vw;
     max-height: 90vh;
-    /*padding: 20px;*/
+    padding: 0;
     border: 5px pink solid;
     border-radius: 9px;
-    /*background-color: white;*/
-    display: none;
-
     grid-template-columns: 1fr auto auto;
     grid-template-rows: auto 1fr auto;
     grid-column-gap: 0px;
     grid-row-gap: 0px;
     box-shadow: black 0 0 5px;
-    overflow: hidden;
 
-    &:popover-open {
+    display: none;
+    &:modal {
       display: grid;
     }
 
 
     img{
       max-width: 100%;
-      max-height: 80vh; /* Zostawiam miejsce na przycisk zamknij */
-      object-fit: contain; /* Zachowuje proporcje obrazu */
+      max-height: 80vh;
+      object-fit: contain;
       display: block;
       margin: 0 auto;
     }
+
     button.like {
       font-size: 45px;
       background-color: transparent;
@@ -175,7 +168,6 @@ label {
       1px 1px var(--color), -1px -1px var(--color), 1px -1px var(--color), -1px 1px var(--color);
       font-family: system-ui;
       padding: 0;
-
 
       &.liked {
         color: #e0218a;
@@ -206,23 +198,6 @@ label {
       padding: 4px;
     }
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
 
 #main {
@@ -234,7 +209,6 @@ label {
   article {
     border: 5px pink solid;
     font-family: system-ui;
-
   }
 
   /* Wszystkie koty które nie są ukryte */
@@ -246,29 +220,17 @@ label {
       margin-top: var(--gap);
     }
   }
-
-  .hidden {
-    visibility: hidden;
-    opacity: 0;
-    height: 0;
-    overflow: hidden;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-  }
-
-
 }
 
-.footer{
+.footer {
   text-align: center;
   font-family: system-ui;
-  a{
+  a {
     text-decoration: none;
   }
 }
 
-::backdrop {
+::backdrop { /*przyciemnianie*/
   background: black;
   opacity: 0.5;
 }
-
